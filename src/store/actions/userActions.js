@@ -24,7 +24,7 @@ const signupToStore = (user) => {
 
 export const signup = (user, ownProps) => {
   return (dispatch) => {
-    Axios.post(`${process.env.NEST_APP_BACKEND_URL}/auth/signup`, {
+    Axios.post(`${process.env.REACT_APP_NEST_APP_BACKEND_URL}/auth/signup`, {
       ...user,
     })
       .then((response) => {
@@ -53,7 +53,7 @@ const loginToStore = (user) => {
 
 export const login = (user, ownProps) => {
   return (dispatch) => {
-    Axios.post(`${process.env.NEST_APP_BACKEND_URL}/auth/login`, {
+    Axios.post(`${process.env.REACT_APP_NEST_APP_BACKEND_URL}/auth/login`, {
       ...user,
     })
       .then((response) => {

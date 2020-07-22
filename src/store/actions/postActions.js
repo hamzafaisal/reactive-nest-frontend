@@ -26,7 +26,7 @@ export const addPostToStore = (post) => {
 
 export const addPost = (post, ownProps) => {
   return (dispatch) => {
-    Axios.post(`${process.env.NEST_APP_BACKEND_URL}/posts`, {
+    Axios.post(`${process.env.REACT_APP_NEST_APP_BACKEND_URL}/posts`, {
       ...post,
     })
       .then((response) => {
@@ -49,7 +49,8 @@ export const updatePostToStore = (post) => {
 export const updatePost = (post, ownProps) => {
   return (dispatch) => {
     Axios.patch(
-      `${process.env.NEST_APP_BACKEND_URL}/posts/` + ownProps.match.params.id,
+      `${process.env.REACT_APP_NEST_APP_BACKEND_URL}/posts/` +
+        ownProps.match.params.id,
       {
         ...post,
       }
@@ -73,7 +74,7 @@ export const deletePostFromStore = (id) => {
 
 export const deletePost = (id, ownProps) => {
   return (dispatch) => {
-    Axios.delete(`${process.env.NEST_APP_BACKEND_URL}/posts/` + id)
+    Axios.delete(`${process.env.REACT_APP_NEST_APP_BACKEND_URL}/posts/` + id)
       .then(() => {
         dispatch(deletePostFromStore(id));
         ownProps.history.push("/");
@@ -100,7 +101,7 @@ export const fetchPostsError = (error) => {
 
 export const fetchPosts = () => {
   return (dispatch) => {
-    Axios.get(`${process.env.NEST_APP_BACKEND_URL}/posts`)
+    Axios.get(`${process.env.REACT_APP_NEST_APP_BACKEND_URL}/posts`)
       .then((response) => {
         const data = response.data;
         dispatch(setPostsToStore(data));

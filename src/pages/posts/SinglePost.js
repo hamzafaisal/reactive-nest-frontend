@@ -63,7 +63,7 @@ export function SinglePost(props) {
 
               <button
                 className="btn btn-danger"
-                onClick={props.onDeletePost(props.post._id)}
+                onClick={() => props.onDeletePost(props.post._id)}
               >
                 Delete
               </button>
