@@ -6,9 +6,11 @@ import { connect } from "react-redux";
 import * as ACTIONS from "../store/actions/postActions.js";
 
 function Home(props) {
+  const { onFetchPosts } = props;
+
   useEffect(() => {
-    props.onFetchPosts();
-  }, []);
+    onFetchPosts();
+  }, [onFetchPosts]);
 
   if (!props.isAuthenticated) {
     return <Redirect to="/login" />;
